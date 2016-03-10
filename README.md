@@ -24,4 +24,6 @@ Finally, the `example_code` folder contains an implementation of the naive bayes
 
 The Naive Bayes Classifier attempts to estimate the following quantity:
 
-$$best_cuisine = \argmax_{cuisine} p(ingredients | cuisine)$$
+$$
+best_cuisine = \argmax_{cuisine} p(ingredients | cuisine)
+$$
