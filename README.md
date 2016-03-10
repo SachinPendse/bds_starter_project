@@ -26,7 +26,7 @@ Note: This is going to be a *brief* overview. Take a look at the [wikipedia arti
 
 The Naive Bayes Classifier attempts to estimate the following quantity:
 
-				best_cuisine = argmax_{cuisine} p(ingredients | cuisine)
+	best_cuisine = argmax_{cuisine} p(ingredients | cuisine)
 
 Ok, so what does that mean? Basically, it's trying to find the cuisine that maximizes the probability of all of the ingredients appearing. So for example, if there was pita bread in a recipe, it would assign it a higher probability of being Greek than Indian.
 
@@ -34,11 +34,11 @@ Ok, so what does that mean? Basically, it's trying to find the cuisine that maxi
 
 We apply [Bayes Rule](https://en.wikipedia.org/wiki/Bayes'_rule)! That says that
 
-				p(ingredients | cuisine) = p(cuisine | ingredients)p(ingredients)/p(cuisine)
+	p(ingredients | cuisine) = p(cuisine | ingredients)p(ingredients)/p(cuisine)
 
 Then, we make the *naive* assumption that all the ingredients are independent of one another - that is, that seeing one of the ingredients in the recipe tells you no information about the other ingredients. Obviously this makes no sense, but it's a great assumption to make, because it lets us do this
 
-				p(ingredients | cuisine) = p(cuisine | ingredient_1)p(ingredient_1)p(cuisine | ingredient_2)p(ingredient_2)...p(cuisine | ingredient_n)p(ingredient_n)/p(cuisine)
+	p(ingredients | cuisine) = p(cuisine | ingredient_1)p(ingredient_1)p(cuisine | ingredient_2)p(ingredient_2)...p(cuisine | ingredient_n)p(ingredient_n)/p(cuisine)
 
 Now, instead of looking at the ingredients all together, we can separate them out and look at them individually, and just multiply the probabilities together.
 
