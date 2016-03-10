@@ -22,8 +22,28 @@ Finally, the `example_code` folder contains an implementation of the naive bayes
 
 ##### Ok, so what does a Naive Bayes Classifier do?
 
+Note: This is going to be a *brief* overview. Take a look at the [wikipedia article](https://en.wikipedia.org/wiki/Naive_Bayes_classifier) for a better and more in depth explanation.
+
 The Naive Bayes Classifier attempts to estimate the following quantity:
 
-$$
-best_cuisine = \argmax_{cuisine} p(ingredients | cuisine)
-$$
+				best_cuisine = argmax_{cuisine} p(ingredients | cuisine)
+
+Ok, so what does that mean? Basically, it's trying to find the cuisine that maximizes the probability of all of the ingredients appearing. So for example, if there was pita bread in a recipe, it would assign it a higher probability of being Greek than Indian.
+
+##### How do we estimate that probability?
+
+We apply [Bayes Rule](https://en.wikipedia.org/wiki/Bayes'_rule)! That says that
+
+				p(ingredients | cuisine) = p(cuisine | ingredients)p(ingredients)/p(cuisine)
+
+Then, we make the *naive* assumption that all the ingredients are independent of one another - that is, that seeing one of the ingredients in the recipe tells you no information about the other ingredients. Obviously this makes no sense, but it's a great assumption to make, because it lets us do this
+
+				p(ingredients | cuisine) = p(cuisine | ingredient_1)p(ingredient_1)p(cuisine | ingredient_2)p(ingredient_2)...p(cuisine | ingredient_n)p(ingredient_n)/p(cuisine)
+
+Now, instead of looking at the ingredients all together, we can separate them out and look at them individually, and just multiply the probabilities together.
+
+##### So how do you actually do any of this?
+
+Well we don't know any of these probabilities. But, we can estimate them from data. The way we do this is to figure out the number of times something appears and divide it by the total size of the dataset. So if you want to know the probability of a cuisine being Greek, we count the number of Greek recipes and divide by the total number of recipes in the dataset.
+
+At this point, you should take a look at the stencil code and try to figure things out. Feel free to email either of us (Sachin Pendse or Roshan Rao) with any questions. This document may also be expanded in the future if we get time to do it.
