@@ -18,7 +18,9 @@ First, let's walk through what's in the repository. The `data` folder contains t
 
 The `stencil_code` folder contains, as you might expect, the stencil code for how to create a naive bayes classifier. You'll find some helper functions there like `load_data` and `test_classifier`, which will take care of some side things for you. You'll also find method declarations and comments that will guide you on how to create the naive bayes classifier.
 
-Finally, the `example_code` folder contains an implementation of the naive bayes classifier. Since this is not a class, we're giving you all the answers! In order to get the most out of this, however, please try to implement the classifier yourself before looking at the example code for help. But if you're stuck, definitely take a look there to see if you can figure out what's going wrong.
+Finally, the `example_code` folder contains an implementation of the naive bayes classifier along with a few other things. Since this is not a class, we're giving you all the answers! In order to get the most out of this, however, please try to implement the classifier yourself before looking at the example code for help. But if you're stuck, definitely take a look there to see if you can figure out what's going wrong. The example classifier gets around 57% of the test recipes correct. 
+
+In addition to the naive bayes classifier (located in `naive_bayes_example.py`), there's also a slightly modified naive bayes classifier (`robust_naive_bayes_example.py`) which adds a prior over p(cuisine | ingredient). The prior essentially prevents any cuisine from having zero probability, which helps when you get ingredients that are rare or that have never been seen with a particular cuisine before. This classifier gets around 62% of the test recipes correct. Finally there's a [k-nearest-neighbors](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm) classifier example, which gets around 67% of the test recipes correct. There's a brief explanation of how this works in the file (it's actually fairly simple).
 
 ##### Ok, so what does a Naive Bayes Classifier do?
 
