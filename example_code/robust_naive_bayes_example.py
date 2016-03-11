@@ -50,6 +50,18 @@ def get_ingredient_and_cuisine_probs(data):
 	return ingredient_probs, cuisine_probs
 
 """
+***************************************** DIFFERENCES ******************************************
+
+The only difference between this file and the regular naive_bayes_example file is that this
+one puts a prior over the cuisines given each ingredient. That means that it gives each 
+cuisine a very small starting probability before looking at the data. This makes it so that
+p(cuisine | ingredient) is never zero. Now, if you come across a cuisine that you've never 
+seen paired with that ingredient, the algorithm will only give it a very small probability, 
+rather than giving it a probability of zero. Zero probability is bad because when you multiply
+it through everything else, it turns the whole probability to zero, which can mess up your data.
+
+************************************************************************************************
+
 Input: List of recipes
 Output: Estimated probability of a cuisine given that a particular ingredient is in the recipe
 
@@ -139,7 +151,7 @@ def get_max_cuisine(ingredient_list, ingredient_probs, cuisine_probs, cuisine_pr
 
 """
 Test your code by running eval_classifier(test_classifier('train.json'))! You'll get a number between 0 and 1 indicating
-the percentage of classifications you got correct. I got 0.576 for my classifier.
+the percentage of classifications you got correct. I got 0.622 for my classifier.
 """
 def test_classifier(train_file):
 	data = load_data(train_file)
