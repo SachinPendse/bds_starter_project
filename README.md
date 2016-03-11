@@ -18,9 +18,9 @@ First, let's walk through what's in the repository. The `data` folder contains t
 
 The `stencil_code` folder contains, as you might expect, the stencil code for how to create a naive bayes classifier. You'll find some helper functions there like `load_data` and `test_classifier`, which will take care of some side things for you. You'll also find method declarations and comments that will guide you on how to create the naive bayes classifier.
 
-Finally, the `example_code` folder contains an implementation of the naive bayes classifier along with a few other things. Since this is not a class, we're giving you all the answers! In order to get the most out of this, however, please try to implement the classifier yourself before looking at the example code for help. But if you're stuck, definitely take a look there to see if you can figure out what's going wrong. The example classifier gets around 57% of the test recipes correct. 
+Finally, the `example_code` folder contains an implementation of the naive bayes classifier along with a few other things. Since this is not a class, we're giving you all the answers! In order to get the most out of this, however, please try to implement the classifier yourself before looking at the example code for help. But if you're stuck, definitely take a look there to see if you can figure out what's going wrong. The example classifier gets around 63% of the test recipes correct. 
 
-In addition to the naive bayes classifier (located in `naive_bayes_example.py`), there's also a slightly modified naive bayes classifier (`robust_naive_bayes_example.py`) which adds a prior over p(cuisine | ingredient). The prior essentially prevents any cuisine from having zero probability, which helps when you get ingredients that are rare or that have never been seen with a particular cuisine before. This classifier gets around 62% of the test recipes correct. Finally there's a [k-nearest-neighbors](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm) classifier example, which gets around 67% of the test recipes correct. There's a brief explanation of how this works in the file (it's actually fairly simple).
+In addition to the naive bayes classifier (located in `naive_bayes_example.py`), there's also a slightly modified naive bayes classifier (`robust_naive_bayes_example.py`) which adds a prior over p(cuisine | ingredient). The prior essentially prevents any cuisine from having zero probability, which helps when you get ingredients that are rare or that have never been seen with a particular cuisine before. This classifier gets around 74% of the test recipes correct. Finally there's a [k-nearest-neighbors](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm) classifier example, which gets around 67% of the test recipes correct. There's a brief explanation of how this works in the file (it's actually fairly simple).
 
 ##### Ok, so what does a Naive Bayes Classifier do?
 
@@ -28,21 +28,25 @@ Note: This is going to be a *brief* overview. Take a look at the [wikipedia arti
 
 The Naive Bayes Classifier attempts to estimate the following quantity:
 
-	best_cuisine = argmax_{cuisine} p(ingredients | cuisine)
+	best_cuisine = argmax_{cuisine} p(cuisine | ingredients)
 
-Ok, so what does that mean? Basically, it's trying to find the cuisine that maximizes the probability of all of the ingredients appearing. So for example, if there was pita bread in a recipe, it would assign it a higher probability of being Greek than Indian.
+Ok, so what does that mean? Basically, it's trying to find the cuisine that is most likely given all the ingredients in your list. So for example, if there was pita bread in a recipe, it would assign it a higher probability of being Greek than Indian.
 
 ##### How do we estimate that probability?
 
 We apply [Bayes Rule](https://en.wikipedia.org/wiki/Bayes'_rule)! That says that
 
-	p(ingredients | cuisine) = p(cuisine | ingredients)p(ingredients)/p(cuisine)
+	p(cuisine | ingredients) = p(ingredients | cuisine)p(cuisine)/p(ingredients)
 
 Then, we make the *naive* assumption that all the ingredients are independent of one another - that is, that seeing one of the ingredients in the recipe tells you no information about the other ingredients. Obviously this makes no sense, but it's a great assumption to make, because it lets us do this
 
-	p(ingredients | cuisine) = p(cuisine | ingredient_1)p(ingredient_1)p(cuisine | ingredient_2)p(ingredient_2)...p(cuisine | ingredient_n)p(ingredient_n)/p(cuisine)
+	p(cuisine | ingredients) = p(ingredient_1 | cuisine)p(ingredient_2 | cuisine)...p(ingredient_n | cuisine)p(cuisine)/p(ingredients)
 
 Now, instead of looking at the ingredients all together, we can separate them out and look at them individually, and just multiply the probabilities together.
+
+Also though, if you notice, the denominator is just p(ingredients). But we can't change what the ingredients in the recipe are, only what the cuisine is. So this quantity is constant for a given set of ingredients - which means we can ignore it. That means, all we have to estimate is
+
+	argmax_{cuisine} p(cuisine | ingredients) = argmax_{cuisine} p(ingredient_1 | cuisine)p(ingredient_2 | cuisine)...p(ingredient_n | cuisine)p(cuisine)
 
 ##### So how do you actually do any of this?
 

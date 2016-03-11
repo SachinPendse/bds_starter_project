@@ -42,7 +42,7 @@ def make_ingredient_list_into_set(data):
 
 """
 Test your code by running eval_classifier(test_classifier('train.json'))! You'll get a number between 0 and 1 indicating
-the percentage of classifications you got correct. This works best with K = 6. I get 0.674 for my classifier. 
+the percentage of classifications you got correct. This works best with K = 6. I get 0.674 for my classifier.
 """
 def test_classifier(train_file, k=6):
 	data = load_data(train_file)
