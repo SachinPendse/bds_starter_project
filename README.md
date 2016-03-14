@@ -2,7 +2,7 @@
 
 ### The Goal
 
-Classify the cuisine of a recipe based on its ingredient list.
+Classify the cuisine of a recipe based on its ingredient list. This is from the [What's Cooking? Kaggle Competition](https://www.kaggle.com/c/whats-cooking).
 
 ### Language
 
