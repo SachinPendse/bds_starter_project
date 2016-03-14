@@ -106,7 +106,7 @@ def get_max_cuisine(ingredient_list, cuisine_probs, ingredient_prob_given_cuisin
 	# Iterate over every cuisine
 	for cuisine in cuisine_probs:
 		# Set probability to p(cuisine)
-
+		prob = None
 		# Multiply by p(ingredient | cuisine) for each ingredient in ingredient_list
 
 		# Check if new prob is higher and if so, set max_prob and best_cuisine
