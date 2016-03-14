@@ -10,7 +10,7 @@ The code here is all in Python because Python is great for short projects and da
 
 ### Getting started on a Naive Bayes Classifier
 
-This guide will walk you through how to create your own Naive Bayes Classifier in Python for the recipe data. If you have github, just clone the repository with the following command: `git clone https://github.com/SachinPendse/bds_starter_project.git`. If you don't have github, no problem - you can create one now or download the data from the [Google Drive](www.google.com) and copy the stencil code from the `stencil_code` folder.
+This guide will walk you through how to create your own Naive Bayes Classifier in Python for the recipe data. If you have github, just clone the repository with the following command: `git clone https://github.com/SachinPendse/bds_starter_project.git`. If you don't have github, no problem - you can create one now or download the data from the [Google Drive](https://drive.google.com/folderview?id=0B19mMjbIHfJsdUo3blVnY0E4eUk&usp=sharing) and copy the stencil code from the `stencil_code` folder.
 
 ##### The Layout
 
