@@ -4,13 +4,40 @@
 
 Classify the cuisine of a recipe based on its ingredient list. This is from the [What's Cooking? Kaggle Competition](https://www.kaggle.com/c/whats-cooking).
 
+### Contact Info
+
+Sachin and Roshan can be reached at `sachin_pendse@brown.edu` and `roshan_rao@brown.edu`.
+
 ### Language
 
-The code here is all in Python because Python is great for short projects and data manipulation. We strongly suggest that you use Python because it will make a lot of this easier and because both of us (Sachin and Roshan) know Python well. If you want to use another language, please let us know. Some languages (e.g. C, Java) will make this a lot harder. Other languages (R, Julia) are also great for this kind of project, but since we don't know them very well, we might not be able to help you as much.
+The code here is all in Python because Python is great for short projects and data manipulation. We strongly suggest that you use Python because it will make a lot of this easier and because both of us (Sachin and Roshan) know Python well. If you want to use another language, please let us know. Some languages (e.g. C, Java) will make this a lot harder. Other languages (R, Julia) are also great for this kind of project, but since we don't know them very well, we might not be able to help you as much. The exception to this is MATLAB, which Roshan knows well, and which would work for this project (although it will still be more difficult than using Python).
+
+##### Downloading Python
+
+If you don't have Python, you can download it from [the website](https://www.python.org/downloads/). We'll be using Python 2, but if you'd like to use Python 3 there aren't too many differences.
+
+Another option for downloading Python is [Anaconda](https://www.continuum.io/downloads) which will download Python along with a number of scientific Python libraries. Although not strictly necessary for this project, if you ever want to use tools like NumPy, SciPy, scikit-learn, etc. then this can be helpful.
+
+##### Other Useful Python Stuff
+
+Python can be edited using any text editor. [Sublime](http://www.sublimetext.com/) is a good one and its free, so that's a good option if you don't already have a preference.
+
+Python comes with an interpreter, which can be accessed by typing `python` into the terminal. A tutorial can be found [here](https://docs.python.org/2/tutorial/interpreter.html). This is useful because it lets you type Python code and evaluate it on the fly, rather than write it in a file and then run the file, which is great for debugging code.
+
+Finally, this project makes heavy use of Python dictionaries to store data. [Here's](http://www.tutorialspoint.com/python/python_dictionary.htm) a quick tutorial on how those work.
 
 ### Getting started on a Naive Bayes Classifier
 
 This guide will walk you through how to create your own Naive Bayes Classifier in Python for the recipe data. If you have github, just clone the repository with the following command: `git clone https://github.com/SachinPendse/bds_starter_project.git`. If you don't have github, no problem - you can create one now or download the data from the [Google Drive](https://drive.google.com/folderview?id=0B19mMjbIHfJsdUo3blVnY0E4eUk&usp=sharing) and copy the stencil code from the `stencil_code` folder.
+
+##### Github Cloning/Github intro
+
+Cloning a repository (if you have a github account) is easy! Just follow these instructions:
+
+	cd <folder that you want these files in>
+	git clone https://github.com/SachinPendse/bds_starter_project.git
+
+That's it! For a more in depth git tutorial, check out the [Github Guide](https://guides.github.com/activities/hello-world/). You don't need to know how to use github for this project. However, learning git never hurts and if everyone in your group is comfortable with it you can use it to manage your project across multiple computers.
 
 ##### The Layout
 
@@ -53,3 +80,7 @@ Also though, if you notice, the denominator is just p(ingredients). But we can't
 Well we don't know any of these probabilities. But, we can estimate them from data. The way we do this is to figure out the number of times something appears and divide it by the total size of the dataset. So if you want to know the probability of a cuisine being Greek, we count the number of Greek recipes and divide by the total number of recipes in the dataset.
 
 At this point, you should take a look at the stencil code and try to figure things out. Feel free to email either of us (Sachin Pendse or Roshan Rao) with any questions. This document may also be expanded in the future if we get time to do it.
+
+##### Finishing the Project
+
+There are no official deadlines for this project, but we might have presentations at the Datafest (April 23), so if you have something done before then, that would be great! Also, the benchmarks produced by our example code can definitely be beaten - so if you do finish early, you can start thinking about ways you can make the model better. If you do manage to beat the example code’s performance, let us know! We can add your code to this repository so other people can learn from your work.
